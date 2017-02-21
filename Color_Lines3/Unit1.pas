@@ -18,22 +18,22 @@ type
     N6: TMenuItem;
     N8: TMenuItem;
     N2: TMenuItem;
-    procedure Init(m,w,r:boolean);              //Инициализация, заполняем массивы нулями
-    procedure CreateSpheres(x,y,c:integer);     //Создаем шарик с координатами x,y и цветом c
-    procedure NewSpheres(quantity:integer);     //Создем шарики с случайными позициями
-    procedure ClickSpheres(Sender: TObject);    //Щелчок на шарике
-    procedure Wave(x1,y1,x2,y2:integer);        //Распространение волны
-    procedure Way(x1,y1,x2,y2:integer);         //Нахождение пути от (x1, y1) до (x2, y2)
-    procedure Move(x1,y1,x2,y2:integer);        //Движение шарика по найденному пути
-    procedure Pause(milliseconds:integer);      //Просто хрень
-    procedure DestroySpheres(x,y,k,i,j:integer);//Удаление k шариков, где i, j вспомогательные координаты для направления
-    procedure Data(sc,nl:integer);              //Очки
-    procedure DestroyLines;                     //Поиск линий
-    procedure Restart;                          //Новая игра
-    function EmptyPos(Pole:Desk):integer;       //Количество пустых позиций (для проверки проигрыша)
-    function ExitMap(x,y:integer):boolean;      //Выход за границы поля
-    function FindLine(x,y,i,j:integer):integer; //Поиск линии с координат x,y
-    function FindSphere(x,y:integer):TImage;    //Поиск Image'a с координатами x,y
+    procedure Init(m,w,r:boolean);              //Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї, Г§Г ГЇГ®Г«Г­ГїГҐГ¬ Г¬Г Г±Г±ГЁГўГ» Г­ГіГ«ГїГ¬ГЁ
+    procedure CreateSpheres(x,y,c:integer);     //Г‘Г®Г§Г¤Г ГҐГ¬ ГёГ Г°ГЁГЄ Г± ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ Г¬ГЁ x,y ГЁ Г¶ГўГҐГІГ®Г¬ c
+    procedure NewSpheres(quantity:integer);     //Г‘Г®Г§Г¤ГҐГ¬ ГёГ Г°ГЁГЄГЁ Г± Г±Г«ГіГ·Г Г©Г­Г»Г¬ГЁ ГЇГ®Г§ГЁГ¶ГЁГїГ¬ГЁ
+    procedure ClickSpheres(Sender: TObject);    //Г™ГҐГ«Г·Г®ГЄ Г­Г  ГёГ Г°ГЁГЄГҐ
+    procedure Wave(x1,y1,x2,y2:integer);        //ГђГ Г±ГЇГ°Г®Г±ГІГ°Г Г­ГҐГ­ГЁГҐ ГўГ®Г«Г­Г»
+    procedure Way(x1,y1,x2,y2:integer);         //ГЌГ ГµГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГіГІГЁ Г®ГІ (x1, y1) Г¤Г® (x2, y2)
+    procedure Move(x1,y1,x2,y2:integer);        //Г„ГўГЁГ¦ГҐГ­ГЁГҐ ГёГ Г°ГЁГЄГ  ГЇГ® Г­Г Г©Г¤ГҐГ­Г­Г®Г¬Гі ГЇГіГІГЁ
+    procedure Pause(milliseconds:integer);      //ГЏГ°Г®Г±ГІГ® ГµГ°ГҐГ­Гј
+    procedure DestroySpheres(x,y,k,i,j:integer);//Г“Г¤Г Г«ГҐГ­ГЁГҐ k ГёГ Г°ГЁГЄГ®Гў, ГЈГ¤ГҐ i, j ГўГ±ГЇГ®Г¬Г®ГЈГ ГІГҐГ«ГјГ­Г»ГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г¤Г«Гї Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГї
+    procedure Data(sc,nl:integer);              //ГЋГ·ГЄГЁ
+    procedure DestroyLines;                     //ГЏГ®ГЁГ±ГЄ Г«ГЁГ­ГЁГ©
+    procedure Restart;                          //ГЌГ®ГўГ Гї ГЁГЈГ°Г 
+    function EmptyPos(Pole:Desk):integer;       //ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГіГ±ГІГ»Гµ ГЇГ®Г§ГЁГ¶ГЁГ© (Г¤Г«Гї ГЇГ°Г®ГўГҐГ°ГЄГЁ ГЇГ°Г®ГЁГЈГ°Г»ГёГ )
+    function ExitMap(x,y:integer):boolean;      //Г‚Г»ГµГ®Г¤ Г§Г  ГЈГ°Г Г­ГЁГ¶Г» ГЇГ®Г«Гї
+    function FindLine(x,y,i,j:integer):integer; //ГЏГ®ГЁГ±ГЄ Г«ГЁГ­ГЁГЁ Г± ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ x,y
+    function FindSphere(x,y:integer):TImage;    //ГЏГ®ГЁГ±ГЄ Image'a Г± ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ Г¬ГЁ x,y
     procedure FormCreate(Sender: TObject);
     procedure AreaMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure N6Click(Sender: TObject);
@@ -112,9 +112,9 @@ CreateSpheres(x*30,y*30,c);
 end else goto Return;
 end;
 end else begin
-showmessage('Вы проиграли.');
-nameUser:=inputBox('Рекорды','Введите свое имя','');
-AssignFile(FText,'Рекорды.txt');
+showmessage('Г‚Г» ГЇГ°Г®ГЁГЈГ°Г Г«ГЁ.');
+nameUser:=inputBox('ГђГҐГЄГ®Г°Г¤Г»','Г‚ГўГҐГ¤ГЁГІГҐ Г±ГўГ®ГҐ ГЁГ¬Гї','');
+AssignFile(FText,'ГђГҐГЄГ®Г°Г¤Г».txt');
 Append(FText);
 WriteLn(FText,nameUser,'.',score);
 CloseFile(FText);
@@ -313,8 +313,8 @@ if(sc=5) then
   score:=score+sc
   else
     score:=score+(5+(sc-5)*5);
-Statusbar1.Panels[0].Text:='Уничтожено линий: '+inttostr(numlines);
-Statusbar1.Panels[1].Text:='Очки: '+inttostr(score);
+Statusbar1.Panels[0].Text:='Г“Г­ГЁГ·ГІГ®Г¦ГҐГ­Г® Г«ГЁГ­ГЁГ©: '+inttostr(numlines);
+Statusbar1.Panels[1].Text:='ГЋГ·ГЄГЁ: '+inttostr(score);
 end;
 
 procedure TForm1.AreaMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -355,8 +355,8 @@ Timage(Components[i]).Destroy;
 goto Return;
 end;
 end;
-Statusbar1.Panels[0].Text:='Уничтожено линий: 0';
-Statusbar1.Panels[1].Text:='Очки: 0';
+Statusbar1.Panels[0].Text:='Г“Г­ГЁГ·ГІГ®Г¦ГҐГ­Г® Г«ГЁГ­ГЁГ©: 0';
+Statusbar1.Panels[1].Text:='ГЋГ·ГЄГЁ: 0';
 end;
 
 
@@ -370,7 +370,7 @@ sl:TStringList;
 begin
 records:='';
 sl:=TStringList.Create;
-AssignFile(FText,'Рекорды.txt');
+AssignFile(FText,'ГђГҐГЄГ®Г°Г¤Г».txt');
 Reset(FText);
 ic:=0;
 while not EOF(FText) do
@@ -414,3 +414,4 @@ end;
 
 
 end.
+// 228 322 СЏ С‚СѓС‚ Р±С‹Р» Р°Р·Р°Р·Р°Р·Р°Р·
